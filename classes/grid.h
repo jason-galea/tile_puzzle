@@ -10,7 +10,7 @@ class Grid {
         static const int i_rows = 4;
         static const int i_cols = 4;
 
-        char ch = '#';
+        // char ch = '#';
 
         int a_grid[i_rows][i_cols];
 

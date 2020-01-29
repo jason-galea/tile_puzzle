@@ -45,27 +45,42 @@ void Grid::Draw() {
     // Somehow find width of terminal, display game board at the centre
     // asdasd
 
-    // Solid line
-    cout << endl << "\t" << std::string(21, ch) << endl;
+    // Starting line
+    cout << "\t" << "┏";
+    for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━┳";}
+    cout << "━━━━━━┓" << endl;
 
     for (unsigned r=0; r<i_rows; r++) {
-
         // Broken line
+        cout << "\t" << "┃";
+        for (unsigned c=0; c<i_cols; c++) {cout << "      ┃";}
+        cout << endl;
 
         // Numbers line
-        cout << "\t" << ch << " ";
-        for (unsigned c=0; c<(i_cols); c++) {
+        cout << "\t" << "┃" << "  ";
+        for (unsigned c=0; c<i_cols; c++) {
             cout << a_grid[r][c];
             if (a_grid[r][c] < 10) {cout << " ";} // Add a space to single digits
-            cout << " " << ch << " ";
+            cout << "  " << "┃" << "  ";
         }
         cout << endl;
 
         // Broken line
+        cout << "\t" << "┃";
+        for (unsigned c=0; c<i_cols; c++) {cout << "      " << "┃";}
+        cout << endl;
 
-        // Solid line
-        cout << "\t" << std::string(21, ch) << endl;
+        // Middle line
+        cout << "\t" << "┣";
+        for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━╋";}
+        cout << "━━━━━━┫" << endl;
     }
+
+    // Ending line
+    cout << "\t" << "┗";
+    for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━┻";}
+    cout << "━━━━━━┛" << endl;
+
 
     // if (debug) {
     //     Debug();
