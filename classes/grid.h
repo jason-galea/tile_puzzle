@@ -1,3 +1,7 @@
+#include <string>
+
+using namespace std;
+
 class Grid {
     private:
         // int i_rows;
@@ -6,7 +10,7 @@ class Grid {
         static const int i_rows = 4;
         static const int i_cols = 4;
 
-        char* ch = "#";
+        char ch = '#';
 
         int a_grid[i_rows][i_cols];
 
@@ -18,7 +22,7 @@ class Grid {
 
         void Randomise();
         void Draw();
-        char* ConsecutiveChars(int n, char* s);
+        string ConsecutiveChars(int n, char s);
 
         void Debug();
 };

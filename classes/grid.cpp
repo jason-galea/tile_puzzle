@@ -19,9 +19,9 @@ Grid::Grid() {
 
     Randomise(); // duh
 
-    do {
+    while (finished == false) {
         Draw();
-    } while (finished != true);
+    } 
 }
 
 void Grid::Randomise() {
@@ -45,29 +45,33 @@ void Grid::Draw() {
     // Somehow find width of terminal, display game board at the centre
     // asdasd
 
-    cout << ConsecutiveChars(5, ch) << endl; // Solid line
-    // for (unsigned r=0; r<i_rows; r++) {
-    //     cout << ch;
-    //     for (unsigned c=0; c<(i_cols - 1); c++) {
-    //         cout << a_grid[r][c] << " " << ch << " ";
-    //     }
-    //     cout << a_grid[r][i_cols - 1] << endl;
-    // }
-    // cout << endl;
+    // Solid line
+    cout << endl << "\t" << std::string(21, ch) << endl;
+
+    for (unsigned r=0; r<i_rows; r++) {
+
+        // Broken line
+
+        // Numbers line
+        cout << "\t" << ch << " ";
+        for (unsigned c=0; c<(i_cols); c++) {
+            cout << a_grid[r][c];
+            if (a_grid[r][c] < 10) {cout << " ";} // Add a space to single digits
+            cout << " " << ch << " ";
+        }
+        cout << endl;
+
+        // Broken line
+
+        // Solid line
+        cout << "\t" << std::string(21, ch) << endl;
+    }
 
     // if (debug) {
     //     Debug();
     // } 
 
     cin.ignore();
-}
-
-string ConsecutiveChars(int n, string s) {
-    string result = "";
-    for (unsigned i=0; i<n; i++) {
-        result += s;
-    }
-    return result;
 }
 
 void Grid::Debug() {
