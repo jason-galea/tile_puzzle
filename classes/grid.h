@@ -6,7 +6,6 @@ class Grid {
     private:
         // int i_rows;
         // int i_cols;
-        // int grid[1][1] = {0};
         static const int i_rows = 4;
         static const int i_cols = 4;
 
@@ -22,18 +21,20 @@ class Grid {
         void Randomise();
         void Debug();
 
-
         void SwapUp();
         void SwapDown();
         void SwapLeft();
         void SwapRight();
 
+        bool IsFinished();
+
         void DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line);
-        void Draw();
-        // string ConsecutiveChars(int n, char s);
+        void DrawGrid();
 
         
     public:
         // Grid(int i_rows, int i_cols);
         Grid();
+
+        void Loop();
 };

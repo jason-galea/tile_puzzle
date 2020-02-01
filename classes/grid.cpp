@@ -13,40 +13,66 @@ Grid::Grid() {
     // Populate grid with consecutive numbers
     for (unsigned r=0; r<i_rows; r++) {
         for (unsigned c=0; c<i_cols; c++) {
-            grid[r][c] = c + (r * 4);
+            grid[r][c] = c + (r * i_rows);
             // cout << c + (r * 4) << endl; 
         }
     }
 
-    Randomise(); // duh
+    Randomise();
+}
 
-    while (finished == false) {
-        Draw();
+void Grid::Loop() {
+    while (true) {
+        system("clear");
+        
+        cout << endl;
 
-        system("stty -echo"); // supress echo
-        system("stty cbreak"); // go to RAW mode
-
-        char ch = getchar();
-        // cout << ch << endl;
-
-        system ("stty echo"); // Make echo work
-        system("stty -cbreak");// go to COOKED mode
-
-        if (ch == 'w') {
-            SwapUp();
-        } else if (ch == 'a') {
-            SwapLeft();
-        } else if (ch == 's') {
-            SwapDown();
-        } else if (ch == 'd') {
-            SwapRight();
-        } else if (ch == 'q') {
-            exit(0);
-        } else if (ch == '`') {
+        DrawGrid();
+        
+        if (debug) {
             cout << "Debug mode active" << endl;
-            debug == true;
+            Debug();
+        } else {
+            cout << "Debug mode NOT active" << endl;
         }
-    } 
+
+        if (IsFinished() == false) {
+                
+            system("stty -echo"); // supress echo
+            system("stty cbreak"); // go to RAW mode
+
+            char ch = getchar();
+            // cout << ch << endl;
+
+            system ("stty echo"); // Make echo work
+            system("stty -cbreak");// go to COOKED mode
+
+            if (ch == 'w') {
+                // SwapUp(); // Reversed
+                SwapDown();
+            } else if (ch == 'a') {
+                // SwapLeft(); // Reversed
+                SwapRight();
+            } else if (ch == 's') {
+                // SwapDown(); // Reversed
+                SwapUp();
+            } else if (ch == 'd') {
+                // SwapRight(); // Reversed
+                SwapLeft();
+            } else if (ch == 'q') {
+                exit(0);
+            } else if (ch == '`') {
+                cout << "Debug mode active" << endl;
+                debug == true;
+            }
+        } else { // Game is completed      
+            cout << "You won the game! Press any key to exit" << endl;
+            cin.ignore();
+
+            exit(0);
+        }
+        cout << endl;
+    }
 }
 
 void Grid::SwapUp() {
@@ -89,6 +115,24 @@ void Grid::SwapRight() {
     }
 }
 
+bool Grid::IsFinished() {
+    // cout << endl;
+    for (unsigned r=0; r<i_rows; r++) {
+        for (unsigned c=0; c<i_cols; c++) {
+            // cout << "CURRENTLY CHECKING GRID[" << r << "][" << c << "]" << endl;
+            if (r != i_rows - 1 || c != i_cols - 1) { // Check all positions except zero
+                // int expected = 1 + c + (r * i_rows);
+                if (grid[r][c] != 1 + c + (r * i_rows)) {
+                    // cout << "\t FALSE" << endl;
+                    return false;
+                }
+            } // No point in checking zero, since if we reach here zero must be correct
+        }
+    }
+    // cout << endl;
+    return true;
+}
+
 void Grid::Randomise() {
     // For each position, generate random position and swap them
     srand(time(NULL));
@@ -128,23 +172,17 @@ void Grid::DrawLine(int iter, string s_start, string s_mid, string s_end, string
     cout << s_end << endl;
 }
 
-void Grid::Draw() {
-    system("clear");
-
-    // Somehow find width of terminal, display game board at the centre
-
-    cout << endl;
+void Grid::DrawGrid() {
+    // Somehow find width of terminal, draw grid at the centre???
 
     DrawLine(i_cols - 1, "┏", "┳", "┓", "━"); // Starting line
 
     for (unsigned r=0; r<i_rows; r++) {
         DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
-
         // Numbers line
         cout << "\t" << "┃" << "  ";
         for (unsigned c=0; c<i_cols; c++) {
             int num = grid[r][c];
-
             if (num == 0) {
                 zero_row = r; // Save the grid position of the blank space
                 zero_col = c; // Save the grid position of the blank space
@@ -154,26 +192,13 @@ void Grid::Draw() {
             } else {
                 cout << num;
             }
-            
             cout << "  " << "┃" << "  ";
         }
         cout << endl;
-
         DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
-
         if (r != i_rows - 1) { // Ignore on the final loop
             DrawLine(i_cols - 1, "┣", "╋", "┫", "━"); // Middle line
         }
     }
-
     DrawLine(i_cols - 1, "┗", "┻", "┛", "━"); // Ending line
-
-    cout << endl;
-
-    if (debug) {
-        cout << "Debug mode active" << endl;
-        Debug();
-    } else {
-        cout << "Debug mode NOT active" << endl;
-    }
 }

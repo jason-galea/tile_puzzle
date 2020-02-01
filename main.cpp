@@ -8,9 +8,8 @@ int main()
 
     // Grid grid(ROWS, COLS);
     Grid grid;
-
-    // grid.Randomise();
-    // grid.Debug();
+    
+    grid.Loop();
 
     return 0;
 }
