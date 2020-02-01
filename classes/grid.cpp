@@ -53,7 +53,6 @@ void Grid::Draw() {
     system("clear");
 
     // Somehow find width of terminal, display game board at the centre
-    // asdasd
 
     DrawLine(i_cols - 1, "┏", "┳", "┓", "━"); // Starting line
 
@@ -63,8 +62,16 @@ void Grid::Draw() {
         // Numbers line
         cout << "\t" << "┃" << "  ";
         for (unsigned c=0; c<i_cols; c++) {
-            cout << a_grid[r][c];
-            if (a_grid[r][c] < 10) {cout << " ";} // Add a space to single digits
+            int num = a_grid[r][c];
+
+            if (num == 0) {
+                cout << "  ";
+            } else if (num != 0 & num < 10) {// Add a space to single digits 
+                cout << num << " ";
+            } else {
+                cout << num;
+            }
+            
             cout << "  " << "┃" << "  ";
         }
         cout << endl;
