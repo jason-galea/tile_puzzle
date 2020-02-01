@@ -13,17 +13,21 @@ class Grid {
         // char ch = '#';
 
         int a_grid[i_rows][i_cols];
+        int zero_row;
+        int zero_col;
 
         bool finished = false;
         bool debug = false;
+
+        void Randomise();
+        void Debug();
+
+        void DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line);
+        void Draw();
+        // string ConsecutiveChars(int n, char s);
+
+        
     public:
         // Grid(int i_rows, int i_cols);
         Grid();
-
-        void Randomise();
-        void DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line);
-        void Draw();
-        string ConsecutiveChars(int n, char s);
-
-        void Debug();
 };

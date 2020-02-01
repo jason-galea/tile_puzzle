@@ -22,6 +22,32 @@ Grid::Grid() {
 
     while (finished == false) {
         Draw();
+
+        system("stty -echo"); // supress echo
+        system("stty cbreak"); // go to RAW mode
+
+        char ch = getchar();
+        cout << ch << endl;
+
+        system ("stty echo"); // Make echo work
+        system("stty -cbreak");// go to COOKED mode
+
+        if (ch == 'w') {
+            ;;
+        } else if (ch == 'a') {
+            ;;
+        } else if (ch == 's') {
+            ;;
+        } else if (ch == 'd') {
+            ;;
+        } else if (ch == 'q') {
+            exit(0);
+        } else if (ch == '`') {
+            cout << "Debug mode active" << endl;
+            debug == true;
+        }
+
+        // Draw();
     } 
 }
 
@@ -40,6 +66,20 @@ void Grid::Randomise() {
     }
 }
 
+void Grid::Debug() {
+    cout << "\nRows = " << i_rows << endl;
+    cout << "Cols = " << i_cols << endl;
+    cout << "Grid = \t";
+    for (unsigned r=0; r<i_rows; r++) {
+        cout << "[";
+        for (unsigned c=0; c<(i_cols - 1); c++) {
+            cout << a_grid[r][c] << ", ";
+        }
+        cout << a_grid[r][i_cols - 1] << "]\n\t";
+    }
+    cout << endl;
+}
+
 void Grid::DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line) {    
     cout << "\t" << s_start;
     for (unsigned i=0; i<iter; i++) {
@@ -55,6 +95,8 @@ void Grid::Draw() {
 
     // Somehow find width of terminal, display game board at the centre
 
+    cout << endl;
+
     DrawLine(i_cols - 1, "┏", "┳", "┓", "━"); // Starting line
 
     for (unsigned r=0; r<i_rows; r++) {
@@ -66,6 +108,8 @@ void Grid::Draw() {
             int num = a_grid[r][c];
 
             if (num == 0) {
+                zero_row = r; // Save the grid position of the blank space
+                zero_col = c; // Save the grid position of the blank space
                 cout << "  ";
             } else if (num != 0 & num < 10) {// Add a space to single digits 
                 cout << num << " ";
@@ -86,23 +130,12 @@ void Grid::Draw() {
 
     DrawLine(i_cols - 1, "┗", "┻", "┛", "━"); // Ending line
 
-    // if (debug) {
-    //     Debug();
-    // } 
-
-    cin.ignore();
-}
-
-void Grid::Debug() {
-    cout << "\nRows = " << i_rows << endl;
-    cout << "Cols = " << i_cols << endl;
-    cout << "Grid = \t";
-    for (unsigned r=0; r<i_rows; r++) {
-        cout << "[";
-        for (unsigned c=0; c<(i_cols - 1); c++) {
-            cout << a_grid[r][c] << ", ";
-        }
-        cout << a_grid[r][i_cols - 1] << "]\n\t";
-    }
     cout << endl;
+
+    if (debug) {
+        cout << "Debug mode active" << endl;
+        Debug();
+    } else {
+        cout << "Debug mode NOT active" << endl;
+    }
 }
