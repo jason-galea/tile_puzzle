@@ -6,13 +6,13 @@ class Grid {
     private:
         // int i_rows;
         // int i_cols;
-        // int a_grid[1][1] = {0};
+        // int grid[1][1] = {0};
         static const int i_rows = 4;
         static const int i_cols = 4;
 
         // char ch = '#';
 
-        int a_grid[i_rows][i_cols];
+        int grid[i_rows][i_cols];
         int zero_row;
         int zero_col;
 
@@ -21,6 +21,12 @@ class Grid {
 
         void Randomise();
         void Debug();
+
+
+        void SwapUp();
+        void SwapDown();
+        void SwapLeft();
+        void SwapRight();
 
         void DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line);
         void Draw();

@@ -13,7 +13,7 @@ Grid::Grid() {
     // Populate grid with consecutive numbers
     for (unsigned r=0; r<i_rows; r++) {
         for (unsigned c=0; c<i_cols; c++) {
-            a_grid[r][c] = c + (r * 4);
+            grid[r][c] = c + (r * 4);
             // cout << c + (r * 4) << endl; 
         }
     }
@@ -27,28 +27,66 @@ Grid::Grid() {
         system("stty cbreak"); // go to RAW mode
 
         char ch = getchar();
-        cout << ch << endl;
+        // cout << ch << endl;
 
         system ("stty echo"); // Make echo work
         system("stty -cbreak");// go to COOKED mode
 
         if (ch == 'w') {
-            ;;
+            SwapUp();
         } else if (ch == 'a') {
-            ;;
+            SwapLeft();
         } else if (ch == 's') {
-            ;;
+            SwapDown();
         } else if (ch == 'd') {
-            ;;
+            SwapRight();
         } else if (ch == 'q') {
             exit(0);
         } else if (ch == '`') {
             cout << "Debug mode active" << endl;
             debug == true;
         }
-
-        // Draw();
     } 
+}
+
+void Grid::SwapUp() {
+    if (zero_row != 0) {
+        int temp = grid[zero_row - 1][zero_col]; // 3-way swap
+        grid[zero_row - 1][zero_col] = grid[zero_row][zero_col];
+        grid[zero_row][zero_col] = temp;
+
+        zero_row -= 1;
+    }
+}
+
+void Grid::SwapDown() {
+    if (zero_row != i_rows - 1) {
+        int temp = grid[zero_row + 1][zero_col]; // 3-way swap
+        grid[zero_row + 1][zero_col] = grid[zero_row][zero_col];
+        grid[zero_row][zero_col] = temp;
+
+        zero_row += 1;
+    }
+}
+
+void Grid::SwapLeft() {
+    if (zero_col != 0) {
+        int temp = grid[zero_row][zero_col - 1]; // 3-way swap
+        grid[zero_row][zero_col - 1] = grid[zero_row][zero_col];
+        grid[zero_row][zero_col] = temp;
+
+        zero_col -= 1;
+    }
+}
+
+void Grid::SwapRight() {
+    if (zero_col != i_cols - 1) {
+        int temp = grid[zero_row][zero_col + 1]; // 3-way swap
+        grid[zero_row][zero_col + 1] = grid[zero_row][zero_col];
+        grid[zero_row][zero_col] = temp;
+
+        zero_col += 1;
+    }
 }
 
 void Grid::Randomise() {
@@ -58,9 +96,9 @@ void Grid::Randomise() {
         for (unsigned c=0; c<i_cols; c++) {
             int rand_r = rand() % i_rows;
             int rand_c = rand() % i_cols;
-            int rand_value = a_grid[rand_r][rand_c]; // 3-way swap
-            a_grid[rand_r][rand_c] = a_grid[r][c];
-            a_grid[r][c] = rand_value;
+            int rand_value = grid[rand_r][rand_c]; // 3-way swap
+            grid[rand_r][rand_c] = grid[r][c];
+            grid[r][c] = rand_value;
             // cout<<"Swapped ["<<r<<"]["<<c<<"] with ["<<rand_r<<"]["<<rand_c<<"]"<<endl;
         }
     }
@@ -73,9 +111,9 @@ void Grid::Debug() {
     for (unsigned r=0; r<i_rows; r++) {
         cout << "[";
         for (unsigned c=0; c<(i_cols - 1); c++) {
-            cout << a_grid[r][c] << ", ";
+            cout << grid[r][c] << ", ";
         }
-        cout << a_grid[r][i_cols - 1] << "]\n\t";
+        cout << grid[r][i_cols - 1] << "]\n\t";
     }
     cout << endl;
 }
@@ -105,7 +143,7 @@ void Grid::Draw() {
         // Numbers line
         cout << "\t" << "┃" << "  ";
         for (unsigned c=0; c<i_cols; c++) {
-            int num = a_grid[r][c];
+            int num = grid[r][c];
 
             if (num == 0) {
                 zero_row = r; // Save the grid position of the blank space
