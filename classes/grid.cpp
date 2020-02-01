@@ -39,22 +39,26 @@ void Grid::Randomise() {
     }
 }
 
+void Grid::DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line) {    
+    cout << "\t" << s_start;
+    for (unsigned i=0; i<iter; i++) {
+        for (unsigned x=0; x<6; x++) {cout << s_line;}
+        cout << s_mid;
+    }
+    for (unsigned x=0; x<6; x++) {cout << s_line;}
+    cout << s_end << endl;
+}
+
 void Grid::Draw() {
     system("clear");
 
     // Somehow find width of terminal, display game board at the centre
     // asdasd
 
-    // Starting line
-    cout << "\t" << "┏";
-    for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━┳";}
-    cout << "━━━━━━┓" << endl;
+    DrawLine(i_cols - 1, "┏", "┳", "┓", "━"); // Starting line
 
     for (unsigned r=0; r<i_rows; r++) {
-        // Broken line
-        cout << "\t" << "┃";
-        for (unsigned c=0; c<i_cols; c++) {cout << "      ┃";}
-        cout << endl;
+        DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
 
         // Numbers line
         cout << "\t" << "┃" << "  ";
@@ -65,22 +69,14 @@ void Grid::Draw() {
         }
         cout << endl;
 
-        // Broken line
-        cout << "\t" << "┃";
-        for (unsigned c=0; c<i_cols; c++) {cout << "      " << "┃";}
-        cout << endl;
+        DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
 
-        // Middle line
-        cout << "\t" << "┣";
-        for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━╋";}
-        cout << "━━━━━━┫" << endl;
+        if (r != i_rows - 1) { // Ignore on the final loop
+            DrawLine(i_cols - 1, "┣", "╋", "┫", "━"); // Middle line
+        }
     }
 
-    // Ending line
-    cout << "\t" << "┗";
-    for (unsigned i=0; i<i_cols - 1; i++) {cout << "━━━━━━┻";}
-    cout << "━━━━━━┛" << endl;
-
+    DrawLine(i_cols - 1, "┗", "┻", "┛", "━"); // Ending line
 
     // if (debug) {
     //     Debug();

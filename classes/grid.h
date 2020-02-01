@@ -21,6 +21,7 @@ class Grid {
         Grid();
 
         void Randomise();
+        void DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line);
         void Draw();
         string ConsecutiveChars(int n, char s);
 
