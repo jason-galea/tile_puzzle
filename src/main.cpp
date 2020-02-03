@@ -9,7 +9,7 @@ int main()
     // Grid grid(ROWS, COLS);
     Grid grid;
     
-    grid.Loop();
+    grid.Run();
 
     return 0;
 }

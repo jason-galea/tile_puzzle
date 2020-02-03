@@ -6,8 +6,8 @@ class Grid {
     private:
         // int i_rows;
         // int i_cols;
-        static const int i_rows = 3;
-        static const int i_cols = 3;
+        static const int i_rows = 4;
+        static const int i_cols = 4;
 
         // char ch = '#';
 
@@ -36,5 +36,5 @@ class Grid {
         // Grid(int i_rows, int i_cols);
         Grid();
 
-        void Loop();
+        void Run();
 };

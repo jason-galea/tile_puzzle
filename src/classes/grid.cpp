@@ -21,7 +21,7 @@ Grid::Grid() {
     Randomise();
 }
 
-void Grid::Loop() {
+void Grid::Run() {
     while (true) {
         system("clear");
         
@@ -66,7 +66,7 @@ void Grid::Loop() {
                 debug == true;
             }
         } else { // Game is completed      
-            cout << "You won the game! Press any key to exit" << endl;
+            cout << "\nYou won the game! Press ENTER to exit" << endl;
             cin.ignore();
 
             exit(0);
@@ -203,4 +203,5 @@ void Grid::DrawGrid() {
         }
     }
     DrawLine(i_cols - 1, "┗", "┻", "┛", "━"); // Ending line
+    cout << endl;
 }
