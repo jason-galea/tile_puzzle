@@ -1,13 +1,17 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 
-PROJECT(tile_puzzle)
+project(tile_puzzle)
 
-SET(EXEC_NAME tile_puzzle)
-SET(CMAKE_BUILD_TYPE Debug)
-SET(CMAKE_BUILD_TYPE RelWithDebInfo)
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-FILE(GLOB classes_DIR "src/classes/*.h" "src/classes/*.cpp")
-SET(PROG_SOURCES src/main.cpp ${classes_DIR})
+set(exec_name tile_puzzle)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-ADD_EXECUTABLE(${EXEC_NAME} ${PROG_SOURCES})
+file(GLOB classes_dir "src/classes/*.h" "src/classes/*.cpp")
+set(sources src/main.cpp ${classes_dir})
+
+add_executable(${exec_name} ${sources})
 
