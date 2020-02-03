@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jg/Programming/CPP/tile_puzzle
+CMAKE_SOURCE_DIR = /home/jg/Programming/CPP/tile_puzzle/src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jg/Programming/CPP/tile_puzzle
@@ -123,59 +123,59 @@ tile_puzzle/fast:
 	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/build
 .PHONY : tile_puzzle/fast
 
-src/classes/grid.o: src/classes/grid.cpp.o
+classes/grid.o: classes/grid.cpp.o
 
-.PHONY : src/classes/grid.o
-
-# target to build an object file
-src/classes/grid.cpp.o:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o
-.PHONY : src/classes/grid.cpp.o
-
-src/classes/grid.i: src/classes/grid.cpp.i
-
-.PHONY : src/classes/grid.i
-
-# target to preprocess a source file
-src/classes/grid.cpp.i:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.i
-.PHONY : src/classes/grid.cpp.i
-
-src/classes/grid.s: src/classes/grid.cpp.s
-
-.PHONY : src/classes/grid.s
-
-# target to generate assembly for a file
-src/classes/grid.cpp.s:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.s
-.PHONY : src/classes/grid.cpp.s
-
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
+.PHONY : classes/grid.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+classes/grid.cpp.o:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o
+.PHONY : classes/grid.cpp.o
 
-src/main.i: src/main.cpp.i
+classes/grid.i: classes/grid.cpp.i
 
-.PHONY : src/main.i
+.PHONY : classes/grid.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+classes/grid.cpp.i:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/classes/grid.cpp.i
+.PHONY : classes/grid.cpp.i
 
-src/main.s: src/main.cpp.s
+classes/grid.s: classes/grid.cpp.s
 
-.PHONY : src/main.s
+.PHONY : classes/grid.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+classes/grid.cpp.s:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/classes/grid.cpp.s
+.PHONY : classes/grid.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/tile_puzzle.dir/build.make CMakeFiles/tile_puzzle.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tile_puzzle"
 	@echo "... edit_cache"
-	@echo "... src/classes/grid.o"
-	@echo "... src/classes/grid.i"
-	@echo "... src/classes/grid.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... classes/grid.o"
+	@echo "... classes/grid.i"
+	@echo "... classes/grid.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

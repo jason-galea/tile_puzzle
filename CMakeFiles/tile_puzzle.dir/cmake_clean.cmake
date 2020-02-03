@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o"
-  "CMakeFiles/tile_puzzle.dir/src/main.cpp.o"
+  "CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o"
+  "CMakeFiles/tile_puzzle.dir/main.cpp.o"
   "tile_puzzle"
   "tile_puzzle.pdb"
 )

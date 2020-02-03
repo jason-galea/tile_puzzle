@@ -1,4 +1,4 @@
-# Install script for directory: /home/jg/Programming/CPP/tile_puzzle
+# Install script for directory: /home/jg/Programming/CPP/tile_puzzle/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

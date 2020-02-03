@@ -43,7 +43,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jg/Programming/CPP/tile_puzzle
+CMAKE_SOURCE_DIR = /home/jg/Programming/CPP/tile_puzzle/src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jg/Programming/CPP/tile_puzzle
@@ -57,42 +57,42 @@ include CMakeFiles/tile_puzzle.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/tile_puzzle.dir/flags.make
 
-CMakeFiles/tile_puzzle.dir/src/main.cpp.o: CMakeFiles/tile_puzzle.dir/flags.make
-CMakeFiles/tile_puzzle.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jg/Programming/CPP/tile_puzzle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tile_puzzle.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tile_puzzle.dir/src/main.cpp.o -c /home/jg/Programming/CPP/tile_puzzle/src/main.cpp
+CMakeFiles/tile_puzzle.dir/main.cpp.o: CMakeFiles/tile_puzzle.dir/flags.make
+CMakeFiles/tile_puzzle.dir/main.cpp.o: src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jg/Programming/CPP/tile_puzzle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tile_puzzle.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tile_puzzle.dir/main.cpp.o -c /home/jg/Programming/CPP/tile_puzzle/src/main.cpp
 
-CMakeFiles/tile_puzzle.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tile_puzzle.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jg/Programming/CPP/tile_puzzle/src/main.cpp > CMakeFiles/tile_puzzle.dir/src/main.cpp.i
+CMakeFiles/tile_puzzle.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tile_puzzle.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jg/Programming/CPP/tile_puzzle/src/main.cpp > CMakeFiles/tile_puzzle.dir/main.cpp.i
 
-CMakeFiles/tile_puzzle.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tile_puzzle.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jg/Programming/CPP/tile_puzzle/src/main.cpp -o CMakeFiles/tile_puzzle.dir/src/main.cpp.s
+CMakeFiles/tile_puzzle.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tile_puzzle.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jg/Programming/CPP/tile_puzzle/src/main.cpp -o CMakeFiles/tile_puzzle.dir/main.cpp.s
 
-CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o: CMakeFiles/tile_puzzle.dir/flags.make
-CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o: src/classes/grid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jg/Programming/CPP/tile_puzzle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o -c /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp
+CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o: CMakeFiles/tile_puzzle.dir/flags.make
+CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o: src/classes/grid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jg/Programming/CPP/tile_puzzle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o -c /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp
 
-CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp > CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.i
+CMakeFiles/tile_puzzle.dir/classes/grid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tile_puzzle.dir/classes/grid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp > CMakeFiles/tile_puzzle.dir/classes/grid.cpp.i
 
-CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp -o CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.s
+CMakeFiles/tile_puzzle.dir/classes/grid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tile_puzzle.dir/classes/grid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp -o CMakeFiles/tile_puzzle.dir/classes/grid.cpp.s
 
 # Object files for target tile_puzzle
 tile_puzzle_OBJECTS = \
-"CMakeFiles/tile_puzzle.dir/src/main.cpp.o" \
-"CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o"
+"CMakeFiles/tile_puzzle.dir/main.cpp.o" \
+"CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o"
 
 # External object files for target tile_puzzle
 tile_puzzle_EXTERNAL_OBJECTS =
 
-tile_puzzle: CMakeFiles/tile_puzzle.dir/src/main.cpp.o
-tile_puzzle: CMakeFiles/tile_puzzle.dir/src/classes/grid.cpp.o
+tile_puzzle: CMakeFiles/tile_puzzle.dir/main.cpp.o
+tile_puzzle: CMakeFiles/tile_puzzle.dir/classes/grid.cpp.o
 tile_puzzle: CMakeFiles/tile_puzzle.dir/build.make
 tile_puzzle: CMakeFiles/tile_puzzle.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jg/Programming/CPP/tile_puzzle/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable tile_puzzle"
@@ -108,6 +108,6 @@ CMakeFiles/tile_puzzle.dir/clean:
 .PHONY : CMakeFiles/tile_puzzle.dir/clean
 
 CMakeFiles/tile_puzzle.dir/depend:
-	cd /home/jg/Programming/CPP/tile_puzzle && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle/CMakeFiles/tile_puzzle.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jg/Programming/CPP/tile_puzzle && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jg/Programming/CPP/tile_puzzle/src /home/jg/Programming/CPP/tile_puzzle/src /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle /home/jg/Programming/CPP/tile_puzzle/CMakeFiles/tile_puzzle.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tile_puzzle.dir/depend
 
