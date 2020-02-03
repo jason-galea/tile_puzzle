@@ -3,13 +3,7 @@
 
 int main()
 {
-    // const int ROWS = 4;
-    // const int COLS = 4; 
-
-    // Grid grid(ROWS, COLS);
-    Grid grid;
-    
-    grid.Run();
+    Grid NewGame(4, 4);
 
     return 0;
 }

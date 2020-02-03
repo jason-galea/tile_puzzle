@@ -1,24 +1,30 @@
 #include <iostream>
 #include <string>
-// #include <ncurses>
+#include <vector>
 
 #include "grid.h"
 
 using namespace std;
 
-// Grid::Grid(int rows, int cols) {
-//     i_rows == rows;
-//     i_cols == cols;
-Grid::Grid() {
+Grid::Grid(int r, int c) : i_rows(r), i_cols(c) {
+    // Resize 2D vector
+    grid.resize(i_rows);
+    for (auto &i : grid) {
+        i.resize(i_cols);
+    }
+
     // Populate grid with consecutive numbers
     for (unsigned r=0; r<i_rows; r++) {
+    // for (auto &r : grid) {
         for (unsigned c=0; c<i_cols; c++) {
             grid[r][c] = c + (r * i_rows);
+            // grid[r][c] = c + (r * i_rows);
             // cout << c + (r * 4) << endl; 
         }
     }
 
     Randomise();
+    Run();
 }
 
 void Grid::Run() {
