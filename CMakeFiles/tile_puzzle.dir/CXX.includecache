@@ -7,9 +7,9 @@
 #IncludeRegexTransform: 
 
 /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp
-iostream
+cstdlib
 -
-string
+iostream
 -
 vector
 -
@@ -17,8 +17,16 @@ grid.h
 /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.h
 
 /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.h
-string
--
 vector
 -
+
+/home/jg/Programming/CPP/tile_puzzle/src/main.cpp
+iostream
+-
+fstream
+-
+string.h
+-
+classes/grid.h
+/home/jg/Programming/CPP/tile_puzzle/src/classes/grid.h
 

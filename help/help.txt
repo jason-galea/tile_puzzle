@@ -1,0 +1,17 @@
+
+A simple CLI based game, based on the popular 15-tile puzzle.
+
+Usage:
+    tile_puzzle
+    tile_puzzle [OPTIONS]
+
+Help Options:
+    -s , --size [SIZE]  Starts game with custom size
+    -d, --debug         Enable debugging mode
+    -h, --help          Prints this help menu
+
+Controls:
+    WASD    Movement
+    q       Quit game
+    `       Toggle debugging mode
+

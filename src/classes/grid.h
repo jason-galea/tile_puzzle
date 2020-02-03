@@ -1,4 +1,4 @@
-#include <string>
+// #include <string>
 #include <vector>
 
 using namespace std;
@@ -7,17 +7,14 @@ class Grid {
     private:
         const int i_rows;
         const int i_cols;
-        // static const int i_rows = 4;
-        // static const int i_cols = 4;
 
-        // int grid[i_rows][i_cols];
-        vector< vector<int> > grid;
+        vector< vector<int> > grid;     // 2D vector for game board
 
         int zero_row;
         int zero_col;
 
-        bool finished = false;
-        bool debug = false;
+        // bool finished = false;
+        bool debug;
 
         void Run();
         void Randomise();
@@ -35,9 +32,8 @@ class Grid {
         void DrawGrid();
 
     public:
-        Grid(int r, int c);
+        Grid(int r, int c, bool d);
         // Grid(int r, int c);
         // Grid();
-        
 
 };

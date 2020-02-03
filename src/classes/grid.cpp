@@ -1,12 +1,15 @@
+#include <cstdlib>
 #include <iostream>
-#include <string>
+// #include <string>
 #include <vector>
 
 #include "grid.h"
 
 using namespace std;
 
-Grid::Grid(int r, int c) : i_rows(r), i_cols(c) {
+Grid::Grid(int r, int c, bool d)
+    : i_rows(r), i_cols(c), debug(debug)
+{
     // Resize 2D vector
     grid.resize(i_rows);
     for (auto &i : grid) {
@@ -14,11 +17,9 @@ Grid::Grid(int r, int c) : i_rows(r), i_cols(c) {
     }
 
     // Populate grid with consecutive numbers
-    for (unsigned r=0; r<i_rows; r++) {
-    // for (auto &r : grid) {
-        for (unsigned c=0; c<i_cols; c++) {
+    for (auto r=0; r<i_rows; r++) {
+        for (auto c=0; c<i_cols; c++) {
             grid[r][c] = c + (r * i_rows);
-            // grid[r][c] = c + (r * i_rows);
             // cout << c + (r * 4) << endl; 
         }
     }
@@ -35,11 +36,9 @@ void Grid::Run() {
 
         DrawGrid();
         
-        if (debug) {
-            cout << "Debug mode active" << endl;
+        if (debug == true) {
+            cout << "Debugging mode enabled" << endl;
             Debug();
-        } else {
-            cout << "Debug mode NOT active" << endl;
         }
 
         if (IsFinished() == false) {
@@ -66,9 +65,10 @@ void Grid::Run() {
                 SwapRight(); // Reversed
                 // SwapLeft();
             } else if (ch == 'q') {
-                exit(0);
+                cout << "\n Quitting game" << endl;
+
+                exit(1);
             } else if (ch == '`') {
-                cout << "Debug mode active" << endl;
                 debug == true;
             }
         } else { // Game is completed      
@@ -123,13 +123,16 @@ void Grid::SwapRight() {
 
 bool Grid::IsFinished() {
     // cout << endl;
-    for (unsigned r=0; r<i_rows; r++) {
-        for (unsigned c=0; c<i_cols; c++) {
-            cout << "CURRENTLY CHECKING GRID[" << r << "][" << c << "]" << endl;
+    for (auto r=0; r<i_rows; r++) {
+        for (auto c=0; c<i_cols; c++) {
+            if (debug == true) {
+                cout << "CURRENTLY CHECKING GRID[" << r << "][" << c << "]" << endl;
+            }
             if (r != i_rows - 1 || c != i_cols - 1) { // Check all positions except zero
-                // int expected = 1 + c + (r * i_rows);
                 if (grid[r][c] != 1 + c + (r * i_rows)) {
-                    cout << "\t FALSE" << endl;
+                    if (debug == true) {
+                        cout << "\t FALSE" << endl;
+                    }
                     return false;
                 }
             } // No point in checking zero, since if we reach here zero must be correct
@@ -142,8 +145,8 @@ bool Grid::IsFinished() {
 void Grid::Randomise() {
     // For each position, generate random position and swap them
     srand(time(NULL));
-    for (unsigned r=0; r<i_rows; r++) {
-        for (unsigned c=0; c<i_cols; c++) {
+    for (auto r=0; r<i_rows; r++) {
+        for (auto c=0; c<i_cols; c++) {
             int rand_r = rand() % i_rows;
             int rand_c = rand() % i_cols;
             int rand_value = grid[rand_r][rand_c]; // 3-way swap
@@ -158,9 +161,9 @@ void Grid::Debug() {
     cout << "\nRows = " << i_rows << endl;
     cout << "Cols = " << i_cols << endl;
     cout << "Grid = \t";
-    for (unsigned r=0; r<i_rows; r++) {
+    for (auto r=0; r<i_rows; r++) {
         cout << "[";
-        for (unsigned c=0; c<(i_cols - 1); c++) {
+        for (auto c=0; c<(i_cols - 1); c++) {
             cout << grid[r][c] << ", ";
         }
         cout << grid[r][i_cols - 1] << "]\n\t";
@@ -170,11 +173,11 @@ void Grid::Debug() {
 
 void Grid::DrawLine(int iter, string s_start, string s_mid, string s_end, string s_line) {    
     cout << "\t" << s_start;
-    for (unsigned i=0; i<iter; i++) {
-        for (unsigned x=0; x<6; x++) {cout << s_line;}
+    for (auto i=0; i<iter; i++) {
+        for (auto x=0; x<6; x++) {cout << s_line;}
         cout << s_mid;
     }
-    for (unsigned x=0; x<6; x++) {cout << s_line;}
+    for (auto x=0; x<6; x++) {cout << s_line;}
     cout << s_end << endl;
 }
 
@@ -183,12 +186,12 @@ void Grid::DrawGrid() {
 
     DrawLine(i_cols - 1, "┏", "┳", "┓", "━"); // Starting line
 
-    for (unsigned r=0; r<i_rows; r++) {
+    for (auto r=0; r<i_rows; r++) {
         DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
 
         // Numbers line
         cout << "\t" << "┃" << "  ";
-        for (unsigned c=0; c<i_cols; c++) {
+        for (auto c=0; c<i_cols; c++) {
             int num = grid[r][c];
             if (num == 0) {
                 zero_row = r; // Save the grid position of the blank space
