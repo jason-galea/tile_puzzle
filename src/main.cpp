@@ -33,9 +33,18 @@ int main(int argc, char** argv)
                 cout << "Missing argument after: \"" << arg << "\"" << endl;
                 exit(2);
             }
+        } else if (!strcmp(arg, "") || !strcmp(arg, "")) {
+            // ADD --rows HERE
+            ;;
+        } else if (!strcmp(arg, "") || !strcmp(arg, "")) {
+            // ADD --cols HERE
+            ;;
+        } else if (!strcmp(arg, "") || !strcmp(arg, "")) {
+            // ADD --rev HERE
+            ;;
         }
 
-        // else if (argv == "" || argv == "") {
+        // else if (!strcmp(arg, "") || !strcmp(arg, "")) {
         //     ;;
         // }
     }

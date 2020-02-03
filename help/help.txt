@@ -9,6 +9,7 @@ Help Options:
     -s , --size [INT]   Starts game with [INT] sized square game board.
     -r, --rows [INT]    Starts game with [INT] number of rows. Overwrites --size.
     -c, --cols [INT]    Starts game with [INT] number of cols. Overwrites --size.
+    -R, --rev           Reverses movement controls.
     -d, --debug         Enable debugging mode.
     -h, --help          Prints this help menu.
 
