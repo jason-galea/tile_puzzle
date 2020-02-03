@@ -6,8 +6,8 @@ class Grid {
     private:
         // int i_rows;
         // int i_cols;
-        static const int i_rows = 4;
-        static const int i_cols = 4;
+        static const int i_rows = 3;
+        static const int i_cols = 3;
 
         // char ch = '#';
 
