@@ -6,12 +6,14 @@ Usage:
     tile_puzzle [OPTIONS]
 
 Help Options:
-    -s , --size [SIZE]  Starts game with custom size
-    -d, --debug         Enable debugging mode
-    -h, --help          Prints this help menu
+    -s , --size [INT]   Starts game with [INT] sized square game board.
+    -r, --rows [INT]    Starts game with [INT] number of rows. Overwrites --size.
+    -c, --cols [INT]    Starts game with [INT] number of cols. Overwrites --size.
+    -d, --debug         Enable debugging mode.
+    -h, --help          Prints this help menu.
 
 Controls:
-    WASD    Movement
-    q       Quit game
+    WASD    Movement controls.
+    q       Quit game.
     `       Toggle debugging mode
 

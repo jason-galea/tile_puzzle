@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     int c = 4;
     bool d = false;
 
-    for (auto i = 0; i<argc; i++) {
+    for (auto i = 1; i<argc; i++) {
         // cout << "ARG #" << i << ": "<< argv[i] << endl;
         char* arg = argv[i]; // It just looks so much nicer
 
@@ -23,8 +23,16 @@ int main(int argc, char** argv)
             exit(1);
 
         } else if (!strcmp(arg, "-d") || !strcmp(arg, "--debug")) {
-            cout << "\nDebug mode\n" << endl;
+            // cout << "\nDebug mode\n" << endl;
             d = true;
+        } else if (!strcmp(arg, "-s") || !strcmp(arg, "--size")) {
+            if (i + 1 < argc) {
+                int size = atoi(argv[i + 1]);
+                r = size, c = size;
+            } else {
+                cout << "Missing argument after: \"" << arg << "\"" << endl;
+                exit(2);
+            }
         }
 
         // else if (argv == "" || argv == "") {

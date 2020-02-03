@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/jg/Programming/CPP/tile_puzzle/src/classes/grid.cpp
-cstdlib
--
-iostream
--
-vector
--
-grid.h
-/home/jg/Programming/CPP/tile_puzzle/src/classes/grid.h
-
 /home/jg/Programming/CPP/tile_puzzle/src/classes/grid.h
 vector
 -
