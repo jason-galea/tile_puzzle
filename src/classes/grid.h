@@ -36,5 +36,5 @@ class Grid {
         // Grid(int i_rows, int i_cols);
         Grid();
 
-        void Loop();
+        void Run();
 };

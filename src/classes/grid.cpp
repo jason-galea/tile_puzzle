@@ -21,7 +21,7 @@ Grid::Grid() {
     Randomise();
 }
 
-void Grid::Loop() {
+void Grid::Run() {
     while (true) {
         system("clear");
         
@@ -48,17 +48,17 @@ void Grid::Loop() {
             system("stty -cbreak");// go to COOKED mode
 
             if (ch == 'w') {
-                // SwapUp(); // Reversed
-                SwapDown();
+                SwapUp(); // Reversed
+                // SwapDown();
             } else if (ch == 'a') {
-                // SwapLeft(); // Reversed
-                SwapRight();
+                SwapLeft(); // Reversed
+                // SwapRight();
             } else if (ch == 's') {
-                // SwapDown(); // Reversed
-                SwapUp();
+                SwapDown(); // Reversed
+                // SwapUp();
             } else if (ch == 'd') {
-                // SwapRight(); // Reversed
-                SwapLeft();
+                SwapRight(); // Reversed
+                // SwapLeft();
             } else if (ch == 'q') {
                 exit(0);
             } else if (ch == '`') {
@@ -66,7 +66,7 @@ void Grid::Loop() {
                 debug == true;
             }
         } else { // Game is completed      
-            cout << "You won the game! Press any key to exit" << endl;
+            cout << "\nYou won the game! Press ENTER to exit" << endl;
             cin.ignore();
 
             exit(0);
@@ -119,11 +119,11 @@ bool Grid::IsFinished() {
     // cout << endl;
     for (unsigned r=0; r<i_rows; r++) {
         for (unsigned c=0; c<i_cols; c++) {
-            // cout << "CURRENTLY CHECKING GRID[" << r << "][" << c << "]" << endl;
+            cout << "CURRENTLY CHECKING GRID[" << r << "][" << c << "]" << endl;
             if (r != i_rows - 1 || c != i_cols - 1) { // Check all positions except zero
                 // int expected = 1 + c + (r * i_rows);
                 if (grid[r][c] != 1 + c + (r * i_rows)) {
-                    // cout << "\t FALSE" << endl;
+                    cout << "\t FALSE" << endl;
                     return false;
                 }
             } // No point in checking zero, since if we reach here zero must be correct
@@ -179,6 +179,7 @@ void Grid::DrawGrid() {
 
     for (unsigned r=0; r<i_rows; r++) {
         DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
+
         // Numbers line
         cout << "\t" << "┃" << "  ";
         for (unsigned c=0; c<i_cols; c++) {
@@ -195,10 +196,12 @@ void Grid::DrawGrid() {
             cout << "  " << "┃" << "  ";
         }
         cout << endl;
+        
         DrawLine(i_cols - 1, "┃", "┃", "┃", " "); // Broken line
         if (r != i_rows - 1) { // Ignore on the final loop
             DrawLine(i_cols - 1, "┣", "╋", "┫", "━"); // Middle line
         }
     }
     DrawLine(i_cols - 1, "┗", "┻", "┛", "━"); // Ending line
+    cout << endl;
 }
