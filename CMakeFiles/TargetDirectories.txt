@@ -1,3 +1,0 @@
-/home/jg/Programming/CPP/tile_puzzle/CMakeFiles/rebuild_cache.dir
-/home/jg/Programming/CPP/tile_puzzle/CMakeFiles/tile_puzzle.dir
-/home/jg/Programming/CPP/tile_puzzle/CMakeFiles/edit_cache.dir

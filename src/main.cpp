@@ -17,7 +17,7 @@ int main(int argc, char** argv)
         char* arg = argv[i]; // It just looks so much nicer
 
         if (!strcmp(arg, "-h") || !strcmp(arg, "--help")) {
-            ifstream f("help/help.txt");
+            ifstream f("help.txt");
             if (f.is_open())
                 std::cout << f.rdbuf();
             exit(1);

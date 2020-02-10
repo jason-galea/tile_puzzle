@@ -1,3 +1,4 @@
+
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 
 project(tile_puzzle)
@@ -10,8 +11,9 @@ set(exec_name tile_puzzle)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-file(GLOB classes_dir "classes/*.h" "classes/*.cpp")
-set(sources main.cpp ${classes_dir})
+# Recieve source files
+file(GLOB classes_dir "src/classes/*.h" "src/classes/*.cpp")
+set(sources "src/main.cpp" ${classes_dir})
 
 add_executable(${exec_name} ${sources})
 
